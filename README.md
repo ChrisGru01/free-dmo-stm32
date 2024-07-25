@@ -1,14 +1,12 @@
 ## FreeDMO
 
-Endless freedom for D.MO 550 series label writer printer.
+[![Release](https://img.shields.io/github/release/queengooborg/free-dmo-stm32.svg?maxAge=60)](https://github.com/queengooborg/free-dmo-stm32/releases/latest) <== Klicke hier zum downloaden
 
-[![Release](https://img.shields.io/github/release/queengooborg/free-dmo-stm32.svg?maxAge=60)](https://github.com/queengooborg/free-dmo-stm32/releases/latest) <== Click here to download
+**solltest du RFID-Tag-Daten kopiert haben für Etiketten, kannst du sie uns hier bereitstellen** (see: https://github.com/free-dmo/free-dmo-tag-dump).
 
-**Please consider dumping RFID tag data and providing it here for others** (see: https://github.com/free-dmo/free-dmo-tag-dump).
+## Installation
 
-## Setup
-
-This mod requires basic knowledge of microprocessors, electronics and soldering. If you do not meet these requirements, do not proceed. This project and its authors/contributors are not liable for any damage or injury; perform this mod at your own risk.
+Diese Modifikation zu installieren, erfordert Grundkenntnisse in folgenden Bereichen: Löten, Mikroprozessoren, Elektronik. Die Installation erfolgt auf eigene Gefahr  
 
 ### Required tools
 
