@@ -83,27 +83,27 @@ A `freedmo.bin` Datei wird im `build` Ordner erstellt.
 2. Setze den Bluepill in den Wartungsmodus [Boot Brücke von 0 auf 1 setzen auf der Platine](ASSEMBLY_PICTURES/dfu.jpg)
    - Nutzt du den ST-Link Adapter, ist das nicht zwingend benötigt. Aber es wird empfohlem um sicherzustellen dass keine Firmware während der Programmierung ausgeführt wird.
 3. Verbinde den Bluepill mit einem Adapter mit dem Computer:
-   - Einen ST-LINK V2 (SWD download)
-     1. Connect all pins to their corresponding counterparts (3.3V to 3.3V, etc.) between the bluepill and ST-LINK
-        - Note: "SWIO" and "SWDIO" are the same pin
-     2. Connect the ST-LINK to your computer
-        - If you haven't yet, it is highly recommended to update the ST-LINK's firmware to reduce potential issues
-   - A UART adapter (serial download)
-     1. From the UART adapter to the bluepill, [connect VCC to 5V, GND to GND, TX0 to A10, and RX1 to A9](https://www.electronicshub.org/wp-content/uploads/2020/02/Connections-for-Programming-STM32.jpg)
-     2. Connect the UART adapter to your computer
-4. Launch `STM32CubeProgrammer`
-5. In the top-right corner, select the appropriate connection method (`ST-LINK` or `UART`)
-   - If the ST-LINK is detected, its [serial number will appear in the appropriate field](ASSEMBLY_PICTURES/st-link-programming.png)
-   - If you are using a UART adapter, you will need to [select the appropriate port](https://www.electronicshub.org/wp-content/uploads/2020/02/STM32CubeProgrammer-Config-1.jpg)
-6. Click the `Connect` button in the top-right corner
-7. Select the [`Erasing & Programming` tab](https://www.electronicshub.org/wp-content/uploads/2020/02/STM32CubeProgrammer-Config-2.jpg) on the left side
-8. In the `File path` field, click `Browse` and select the desired firmware
-   - Tip: make sure that the `Start address` is `0x08000000`
-9. Click `Start Programming`
-10. Once programming is complete, click `Disconnect` in the top-right corner and disconnect your programming module from both your computer and the bluepill
-11. Switch your bluepill back to normal mode by [switching the BOOT0 jumper back to 0](ASSEMBLY_PICTURES/dfu.jpg)
+   - Einen ST-LINK V2 (SWD Download)
+     1. Verbinde alle Pins mit der Gegenseite (3.3V zu 3.3V, etc.) zwischen Bluepill und ST-Link
+        - Notiz: "SWIO" und "SWDIO" sind dieselben Pins
+     2. Verbinde den ST-Link Adapter mit dem Computer
+        - Wenn du es noch nicht gemacht hast, führe das Update für den ST-Link Adapter aus. 
+   - UART Adapter (serial download)
+     1. Vom UART Adapter zum Bluepill, [verbinde VCC zu 5V, GND zu GND, TX0 zu A10, und RX1 zu A9](https://www.electronicshub.org/wp-content/uploads/2020/02/Connections-for-Programming-STM32.jpg)
+     2. Verbinde den UART-Adapter mit dem Computer
+4. Starte `STM32CubeProgrammer`
+5. In der oberen rechte Ecke wählst du deine Verbindungsmethode (`ST-LINK` oder `UART`)
+   - Wird der ST-Link Adapter erkannt, [findest du dessen Seriennummer im dafür vorgesehenen Feld](ASSEMBLY_PICTURES/st-link-programming.png)
+   - Wenn du einen UART-Adapter nutzt, [wähle auch den entsprechenden Port](https://www.electronicshub.org/wp-content/uploads/2020/02/STM32CubeProgrammer-Config-1.jpg)
+6. Klicke `Connect` in der oberen rechten Ecke.
+7. Wähle den [`Erasing & Programming` Tab auf der linken Seite](https://www.electronicshub.org/wp-content/uploads/2020/02/STM32CubeProgrammer-Config-2.jpg) on the left side
+8. Im `File path`-Feld, klicke `Browse` und wähle die entsprechende Firmware.
+   - Tipp: Stelle sicher, dass `Start address` folgendes eingetragen ist: `0x08000000`
+9. Klicke `Start Programming`
+10. Wenn die Firmware auf den Bluepill geschrieben ist, klicke `Disconnect` in der oberen rechte Ecke und trenne den Bluepill vom Computer um vom Adapter.
+11. Stelle den Bluepill wieder zurück aus dem Wartungsmodus: [Boot Brücke von 1 wieder auf 0](ASSEMBLY_PICTURES/dfu.jpg)
 
-Happy printing... 😈
+Frohes drucken... 😈
 
 ## Usage
 
