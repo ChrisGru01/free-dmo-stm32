@@ -61,23 +61,23 @@ Es gibt zwei Wege die Firmware für den Bluepill vorzubereiten:
 
 fertige und kompilierte Firmware gibt es hier: [Download](https://github.com/queengooborg/free-dmo-stm32/releases/latest)
 
-You can choose one of the firmwares which has a default SKU for emulation (used when no real RFID tag is present).
+Du kannst eine der bereits kompilierten Firmwares nutzen die bereits einen Standart-Tag definiert haben. (wird genutzt wenn kein Orginaler RFID-Tag vorhanden ist).
 
-#### Compile from source
+#### Source-Code kompilieren
 
-To compile the firmware from source, perform the following steps:
+um die Firmware vom Source-Code zu kompilieren, befolge folgende Schritte:
 
-1. Install the required ARM toolchain
+1. Installiere die erforderliche ARM-Toolchain
    - Debian Linux:
      - `sudo apt install gcc-arm-none-eabi libnewlib-arm-none-eabi`
-   - Windows/macOS/Other Linux:
+   - Windows/macOS/Andere Linux:
      - https://developer.arm.com/downloads/-/gnu-rm
-     - Open the Makefile and modify the first line `GCC_PATH` to point to the GNU ARM embedded toolchain `bin` folder (e.g. `GCC_PATH = ../gcc-arm-none-eabi-10.3-2021.07/bin`)
-2. Run `make DMO_SKU={Desired SKU to compile}` to compile the firmware
+     - öffne die "Makefile" und editiere den Pfad in Zeile 1 `GCC_PATH` um auf den toolchain `bin` Ordner zu verweisen (z.B. `GCC_PATH = ../gcc-arm-none-eabi-10.3-2021.07/bin`)
+2. führe folgenden Befehl aus: `make DMO_SKU={ausgewählte SKU zum kompilieren}` um die Firmware zu erstellen.
 
-A `freedmo.bin` file will be created in the `build` folder.
+A `freedmo.bin` Datei wird im `build` Ordner erstellt.
 
-### Install the firmware
+### Installiere dir Firmware
 
 1. Install the [`STM32CubeProgrammer`](https://www.st.com/en/development-tools/stm32cubeprog.html) application (if you haven't already)
 2. Switch your bluepill to DFU mode by [switching the BOOT0 jumper to 1](ASSEMBLY_PICTURES/dfu.jpg)
