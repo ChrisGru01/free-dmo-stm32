@@ -79,11 +79,11 @@ A `freedmo.bin` Datei wird im `build` Ordner erstellt.
 
 ### Installiere dir Firmware
 
-1. Install the [`STM32CubeProgrammer`](https://www.st.com/en/development-tools/stm32cubeprog.html) application (if you haven't already)
-2. Switch your bluepill to DFU mode by [switching the BOOT0 jumper to 1](ASSEMBLY_PICTURES/dfu.jpg)
-   - While it is not required for ST-LINK programming, it is good practice to make sure your bluepill will not attempt to run firmware during programming
-3. Connect your bluepill using a programming module. This may be either:
-   - An ST-LINK V2 (SWD download)
+1. Installiere [`STM32CubeProgrammer`](https://www.st.com/en/development-tools/stm32cubeprog.html) (falls du es noch nicht hast)
+2. Setze den Bluepill in den Wartungsmodus [Boot Brücke von 0 auf 1 setzen auf der Platine](ASSEMBLY_PICTURES/dfu.jpg)
+   - Nutzt du den ST-Link Adapter, ist das nicht zwingend benötigt. Aber es wird empfohlem um sicherzustellen dass keine Firmware während der Programmierung ausgeführt wird.
+3. Verbinde den Bluepill mit einem Adapter mit dem Computer:
+   - Einen ST-LINK V2 (SWD download)
      1. Connect all pins to their corresponding counterparts (3.3V to 3.3V, etc.) between the bluepill and ST-LINK
         - Note: "SWIO" and "SWDIO" are the same pin
      2. Connect the ST-LINK to your computer
