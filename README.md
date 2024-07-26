@@ -8,31 +8,31 @@
 
 Diese Modifikation zu installieren, erfordert Grundkenntnisse in folgenden Bereichen: Löten, Mikroprozessoren, Elektronik. Die Installation erfolgt auf eigene Gefahr  
 
-### Required tools
+### benötigtes Werkzeug
 
-- Philips 00 screwdriver
-- Soldering station (soldering iron, spool of solder, solder wick, soldering mat)
-- Either: ST-LINK V2 or UART Adapter<br>
-  Required to program the bluepill, as it cannot be programmed from the Micro USB port.
+- Schraubendrehler
+- Lötstation/Lötkolben, Lötzinn
+- Einer der beiden Adapter: ST-LINK V2 oder UART Adapter<br>
+  (benötigt zum programmieren da dies nicht über den Micro-USB-Port erfolgen kann).
 
-### Required parts
+### weitere benötigte Sachen
 
-- 1× D.MO 550 series label printer<br />
-  Tested on 550, 550 Turbo and 5XL.
+- 1× D.MO 550-Serie Etikettendrucker<br />
+  getestet auf: 550, 550 Turbo und 5XL.
 
 - 1× STM32F103C8T6 bluepill<br/>
-  search for: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
-  Make sure your bluepill is a STM32F103C**8**T6, not a STM32F103C**6**T6.
-  **ATTENTION:** Many vendors sell [counterfeit bluepills](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes). Counterfeits may not function properly or at all.
+  sucht nach: `STM32F103 bluepill` / `STM32F103 bluepill with STLinkV2`<br/>
+  stellt sicher dass eure Platine den folgenden Chip verbaut hat: STM32F103C**8**T6 und nicht: STM32F103C**6**T6.
+  **ACHTUNG:** viele Händler verkaufen [gefälschte bluepills](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes). Fälschungen funktionieren villeicht nicht.
 
-- 1× 6-pin Molex PicoBlade cable<br/>
-  search for: `6 pin Molex PicoBlade 1.25 mm` / `6pin 1.25mm MX Wire To Board Connector` / `JST MX 6pin`<br />
-  You will need to cut this cable in half, with a connector on each side and loose ends on the other. If your cable is short, you may want to get two cables instead.
+- 1× 6-pin Molex PicoBlade Kabel<br/>
+  sucht nach: `6 pin Molex PicoBlade 1.25 mm` / `6pin 1.25mm MX Wire To Board Connector` / `JST MX 6pin`<br />
+  Ihr braucht zwei Kabel mit jeweils eine der genannten Stecker. Sollte euer Kabel zwei Stecker haben, schneidet es einfach in der Mitte auseinander.
 
-- 2× `4.7kΩ` resistor<br />
-  Optional, not required if you do not care about reading real RFID tags.
+- 2× `4.7kΩ` Wiederstand<br />
+  OPTIONAL und wird nur benötigt wenn ich die Echten RFID-Tags scannen wollt.
 
-### Assembly
+### Zusammenbau
 
 First, take the Molex PicoBlade cables.  If you have ordered a kit and the ends are not already attached, do so now.
 
