@@ -105,42 +105,44 @@ A `freedmo.bin` Datei wird im `build` Ordner erstellt.
 
 Frohes drucken... 😈
 
-## Usage
 
-The bluepill will emulate the RFID tag of a D.MO label roll if an RFID tag is not already detected, including counting down the remaining labels. To reset the remaining label count, simply power cycle the printer.
+## Verwendung
 
-## Troubleshooting
+Der Bluepill emuliert den RFID-Tag einer D.MO-Etikettenrolle, wenn noch kein RFID-Tag erkannt wurde, und zählt die verbleibenden Etiketten herunter. Um die Anzahl der verbleibenden Etiketten zurückzusetzen, schalte den Drucker einfach aus und wieder ein.
 
-### I can't program the board with the Micro USB port, what do I do?
+## Fehlerbehebung
 
-Unfortunately, you cannot program the Bluepill with its Micro USB port. You will have to use an ST-LINK v2 or a UART adapter.
+### Ich kann den Bluepill nicht mit dem Micro-USB-Anschluss programmieren. Was kann ich tun?
 
-### I've assembled my printer but it won't print because "unknown labels are loaded".
+Leider kannst du den Bluepill nicht mit dem Micro-USB-Anschluss programmieren. Du musst einen ST-LINK v2 oder einen UART-Adapter verwenden.
 
-Double-check your connections between the Bluepill and the mainboard. You may have a loose connection which is preventing the Bluepill and mainboard from communicationg with each other. Additionally, check for solder bridges between the pins.
+### Ich habe meinen Drucker zusammengebaut, aber er druckt nicht und zeigt „unbekannte Etiketten geladen“ an.
 
-### I can't read real RFID tags, I can only emulate them.
+Überprüfe die Verbindungen zwischen dem Bluepill und der Hauptplatine noch einmal. Möglicherweise liegt eine lose Verbindung vor, die die Kommunikation zwischen dem Bluepill und der Hauptplatine verhindert. Überprüfe außerdem, ob sich zwischen den Pins Lötbrücken befinden.
 
-Double-check your connections between the Bluepill and the RFID board. Also, make sure your two resistors are installed properly and their pins aren't touching.
+### Ich kann keine echten RFID-Tags lesen, ich kann sie nur emulieren.
 
-Note: you should also double-check if you have an [authentic STM32F103 Bluepill](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes).
+Überprüfe die Verbindungen zwischen dem Bluepill und der RFID-Platine noch einmal. Stelle außerdem sicher, dass die beiden Widerstände richtig verlötet sind und sich die Pins nicht berühren.
 
-## Technical info
+Hinweis: du solltest auch noch einmal überprüfen, ob du einen orginalen [STM32F103 Bluepill](https://github.com/keirf/greaseweazle/wiki/STM32-Fakes) hast.
 
-### D.MO RFID tag emulation
+## Technische Informationen
 
-After startup of the printer a default tag emulation is used which can be defined in the firmware.
-The emulation will count down correctly until the end of the roll is reached. A power cycle / sleep+wakeup of the printer is enough to reset the emulated tag counter back to it's maximum.
+### D.MO RFID-Tag-Emulation
 
-If the original RFID board is also connected and a spool with D.MO RFID tag is found then the emulation data is updated with the data from this RFID tag. Just the counter will be emulated in this case. The tag that is detected and emulated upon powerup is the only label that will be recognized in the printer until another power cycle. This enables the use of any D.MO format unless you have at least one original spool (you can peel the RFID label of that role and attach it to the inside of the printer). If you change genuine labels (with RFID tag) then you will need to power cycle the printer to detect the new label.
+Nach dem Start des Druckers wird eine Standard-Tag-Emulation verwendet, die in der Firmware definiert werden kann.
+Die Emulation zählt korrekt herunter, bis das Ende der Rolle erreicht ist. Ein Aus- und Wiedereinschalten bzw. Ruhe- und Wiederaufwachen des Druckers reicht aus, um den emulierten Tag-Zähler auf sein Maximum zurückzusetzen.
 
-**Please consider dumping this data and providing it here for others** (see: https://github.com/free-dmo/free-dmo-tag-dump).
+Wenn auch die ursprüngliche RFID-Platine angeschlossen ist und eine Spule mit D.MO RFID-Tag gefunden wird, werden die Emulationsdaten mit den Daten dieses RFID-Tags aktualisiert. In diesem Fall wird nur der Zähler emuliert. Das Etikett, das beim Einschalten erkannt und emuliert wird, ist das einzige Etikett, das im Drucker erkannt wird, bis der Drucker erneut eingeschaltet wird. Dies ermöglicht die Verwendung jedes D.MO-Formats, sofern du nicht mindestens eine Originalspule hast (du kannst das RFID-Etikett dieser Rolle abziehen und an der Innenseite des Druckers anbringen). Wenn du Originaletiketten (mit RFID-Etikett) wechselst, musst du den Drucker aus- und wieder einschalten, damit das neue Etikett erkannt wird.
 
-D.MO uses it's own Originality Signature (own signing key) which is used to sign the UID of the tag.
-This is used to only allow D.MO's own SLIX2 tags. However when you can emulate the UID you also can emulate the corresponding signature bytes, you just need to dump them from a valid tag.<br/>(see: https://github.com/free-dmo/free-dmo-tag-dump).
+**Bitte ziehe in Erwägung, diese Daten zu dumpen und sie hier für andere bereitzustellen** (siehe: https://github.com/free-dmo/free-dmo-tag-dump).
 
-The firmware contains some D.MO SLIX2 tag dumps which you can choose from: <br/>
-file: `Src/main.c`
+D.MO verwendet seine eigene Originalitätssignatur (eigener Signaturschlüssel), mit der die UID des Etiketts signiert wird.
+
+Dies wird verwendet, um nur D.MOs eigene SLIX2-Etiketten zuzulassen. Wenn du jedoch die UID emulieren kannst, kannst du auch die entsprechenden Signaturbytes emulieren, du musst sie nur von einem gültigen Etikett dumpen.<br/>(siehe: https://github.com/free-dmo/free-dmo-tag-dump).
+
+Die Firmware enthält einige D.MO SLIX2-Tag-Dumps, aus denen du wählen kannst: <br/>
+Datei: `Src/main.c`
 
 ```C
 #define SLIX2_TAG_EMU 1
@@ -148,24 +150,24 @@ file: `Src/main.c`
 //#define SLIX2_TAG_EMU 3
 ```
 
-It does not matter which TAG_EMU you use. All of them will work for now. Maybe... in future D.MO will release new printer / firmware which might block those UIDs... but then we only need to dump a new spool of labels to get a new and valid UID+signature.
+Es spielt keine Rolle, welches TAG_EMU du verwendest. Alle funktionieren im Moment. Vielleicht... in Zukunft wird D.MO neue Drucker/Firmware herausbringen, die diese UIDs blockieren könnten... aber dann müssen wir nur eine neue Spule Etiketten dumpen, um eine neue und gültige UID+Signatur zu erhalten.
 
-The data about the labels (SKU, size, count, ...) is encoded in the standard SLIX2 data blocks.
-**Inside of this data is no dependency to the UID or signature**. This enables a "mix and match" of SLIX2 tag (UID+signature) and the media data used from the printer. Unfortunately the encoded data uses an unknown CRC32 algorithm which limits us to use existing dumped label formats only.
+Die Daten zu den Etiketten (SKU, Größe, Anzahl, ...) sind in den Standard-SLIX2-Datenblöcken kodiert.
+**Innerhalb dieser Daten besteht keine Abhängigkeit zur UID oder Signatur**. Dies ermöglicht ein „Mix and Match“ des SLIX2-Tags (UID+Signatur) und der vom Drucker verwendeten Mediendaten. Leider verwenden die codierten Daten einen unbekannten CRC32-Algorithmus, der uns darauf beschränkt, nur vorhandene gedumpte Etikettenformate zu verwenden.
 
-You can choose from the list of included label data by selecting the SKU: <br/>
-file: `Src/main.c`
+Du kannst aus der Liste der enthaltenen Etikettendaten auswählen, indem du eine SKU wählst: <br/>
+Datei: `Src/main.c`
 
 ```C
-#define DMO_SKU_S0722430 // 54 x 101 mm, 220 pcs.
-//#define DMO_SKU_S0722550 // 19 x  51 mm, 500 pcs.
-//#define DMO_SKU_S0722400 // 36 x  89 mm, 50 pcs.
+#define DMO_SKU_S0722430 // 54 x 101 mm, 220 Stk.
+//#define DMO_SKU_S0722550 // 19 x 51 mm, 500 Stk.
+//#define DMO_SKU_S0722400 // 36 x 89 mm, 50 Stk.
 ```
 
 ### STM32CubeMx
 
-The project comes with the CubeMX .ioc file which can be used to modify pins and/or change to different CPU types. The complete code is inside of ST's magic `BEGIN_USER_CODE` / `END_USER_CODE` markers so "Generate Code" in CubeMX can be used without any problems.
+Das Projekt wird mit der CubeMX .ioc-Datei geliefert, die zum Ändern von Pins und/oder zum Wechseln zu anderen CPU-Typen verwendet werden kann. Der komplette Code befindet sich innerhalb der magischen `BEGIN_USER_CODE` / `END_USER_CODE`-Markierungen von ST, sodass "Code generieren" in CubeMX problemlos verwendet werden kann.
 
-#### STM32F103 pin assignment
+#### STM32F103-Pinbelegung
 
 ![CUBEMX](ASSEMBLY_PICTURES/pin-assignment.png)
