@@ -34,33 +34,32 @@ Diese Modifikation zu installieren, erfordert Grundkenntnisse in folgenden Berei
 
 ### Zusammenbau
 
-First, take the Molex PicoBlade cables.  If you have ordered a kit and the ends are not already attached, do so now.
+Zuerst nehmt ihr euer Kabel.  Solltest du ein Kit zum selbst crimpen haben, crimpt nun eure Stecker.
 
-Next, cut the cables in half and strip the loose ends so that they may be soldered to the Bluepill.
 
-**→ Make sure that the cables are connected correctly.**<br/>
-In the photos below, the left cables go to the RFID board, the right cables go to the main board of the label printer.
+**→ Achtet auf die richtige Verdrahtung der Kabel.**<br/>
+Die im Bild gezeigten rechten Kabel gehen zum Etiktettendrucker und die linken Kabel zur RFID-Platine wenn ihr diese verwenden wollt.
 
-_Attaching the RFID board is optional._ If you only want to emulate one specific label type and you do not care about reading real tags, you don't have to connect the RFID board and 2 x 4k7Ω resistors.
+_Verbinden der RFID-Platine ist optional._ Wenn du nur ein einziges Label drucken willst und keine echten RFID-Chips nutzen willst, musst du auch keine Kabel für die RFID-Platine anlöten und auch keine Wiederstände.
 
 STM32F103 blue pill:
 ![BLUE PILL](ASSEMBLY_PICTURES/bluepill.jpg)
 
-Connection to RFID board:
+Verbindung der RFID Platine:
 ![RFID BOARD](ASSEMBLY_PICTURES/rfid.jpg)
 
-Connection to main board:
+Verbindung zum Drucker-Mainboard:
 ![MAIN BOARD](ASSEMBLY_PICTURES/mainboard.jpg)
 
-**Double check your wiring before connecting the D.MO to power.**
+**Prüft die Verkabelung bevor ihr den Etikettendrucker mit Strom versorgt.**
 
-### Obtain the firmware
+### vorbereiten der Firmware
 
-There are two ways to obtain the firmware you will be flashing onto your Bluepill:
+Es gibt zwei Wege die Firmware für den Bluepill vorzubereiten:
 
-#### Use the precompiled firmware
+#### Nutzung einer fertigen Firmware
 
-Precompiled firmware binaries are available here: [Download](https://github.com/queengooborg/free-dmo-stm32/releases/latest)
+fertige und kompilierte Firmware gibt es hier: [Download](https://github.com/queengooborg/free-dmo-stm32/releases/latest)
 
 You can choose one of the firmwares which has a default SKU for emulation (used when no real RFID tag is present).
 
